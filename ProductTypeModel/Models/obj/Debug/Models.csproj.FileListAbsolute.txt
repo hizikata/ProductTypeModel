@@ -1,0 +1,6 @@
+D:\Projects\ProductTypeModel\Models\bin\Debug\Models.dll
+D:\Projects\ProductTypeModel\Models\bin\Debug\Models.pdb
+D:\Projects\ProductTypeModel\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\Projects\ProductTypeModel\Models\obj\Debug\Models.dll
+D:\Projects\ProductTypeModel\Models\obj\Debug\Models.pdb
+D:\Projects\ProductTypeModel\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

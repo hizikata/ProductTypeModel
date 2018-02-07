@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="UI.FrmProductParameter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI" Loaded="UserControl_Loaded"
+             mc:Ignorable="d" Height="403.328" Width="672.81"
+             VerticalAlignment="Top" HorizontalAlignment="Left">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="150*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="Gray" Grid.RowSpan="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="202"/>
+                <ColumnDefinition Width="204"/>
+                <ColumnDefinition Width="147"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions >
+            <TextBlock HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="型号:" Padding="5" VerticalAlignment="Top" Width="41"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="5,3,0,0" TextWrapping="Wrap" Padding="5" Text="新增型号" VerticalAlignment="Top" Width="60"/>
+            <TextBox Name="tbReplaceType" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="70,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="131"/>
+            <Button Name="btReplaceType" Content="数据生成" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="60" Margin="2,2,0,2" Click="btReplaceType_Click"/>
+            <Button Name="btInsertToDB" Content="写入数据库" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="68" Margin="75,2,0,2" Click="btInsertToDB_Click" />
+            <ComboBox  Name="cmbAllType" HorizontalAlignment="Left" Height="30" Margin="46,0,0,0" VerticalAlignment="Top" Width="156" DropDownClosed="cmbAllType_DropDownClosed"/>
+
+        </Grid>
+        <DataGrid Name="dgInfo" Margin="0,5,0,0" Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" SelectedCellsChanged="dgInfo_SelectedCellsChanged" HorizontalAlignment="Left" Width="673">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="提取" Name="menuItemExtract" Click="menuItemExtract_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ProductType" Binding="{Binding ProductType}"/>
+                <DataGridTextColumn Header="ProductStation" Binding="{Binding ProductStation}"/>
+                <DataGridTextColumn Header="ParameterName" Binding="{Binding ParameterName}"/>
+                <DataGridTextColumn Header="ParameterMax" Binding="{Binding ParameterMax}"/>
+                <DataGridTextColumn Header="ParameterMin" Binding="{Binding ParameterMin}"/>
+                <DataGridTextColumn Header="ParameterMemo" Binding="{Binding ParameterMemo}"/>
+                <DataGridTextColumn Header="TempSign" Binding="{Binding TempSign}"/>
+                <DataGridTextColumn Header="Id_Key" Binding="{Binding Id_Key}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StatusBar Height="24" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="673">
+            <StatusBar.Background>
+                <SolidColorBrush Color="{DynamicResource MyColorLightBlue}"/>
+            </StatusBar.Background>
+            <TextBlock Name="tbCurrentRow" Text="当前行号:0" Height="16"/>
+            <TextBlock Name="tbSelectedRows" Height="16" TextWrapping="Wrap" Text="选中行数:0" Width="auto"/>
+            <TextBlock Name="tbAllRows" Height="16" TextWrapping="Wrap" Text="总行数:0" Width="auto" RenderTransformOrigin="1.316,0.503"/>
+        </StatusBar>
+        <Grid Grid.Row="3" Background="Gray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="347*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Left" Margin="3,7,0,0" TextWrapping="Wrap" Text="ProductType" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="3,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="ProductStation" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="5,9,0,0" Grid.Row="2" TextWrapping="Wrap" Text="ParameterMemo" VerticalAlignment="Top" Grid.Column="1"/>
+            <TextBlock HorizontalAlignment="Left" Margin="2,9,0,0" Grid.Row="2" TextWrapping="Wrap" Text="ParameterName" VerticalAlignment="Top"/>
+            <TextBox Name="tbProductType" HorizontalAlignment="Left" Height="28" Margin="96,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+            <TextBox Name="tbProductStation" HorizontalAlignment="Left" Height="27" Margin="96,1,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144"/>
+            <TextBox Name="tbParameterName" HorizontalAlignment="Left" Height="28" Margin="96,0,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144"/>
+            <TextBox Name="tbParameterMax" HorizontalAlignment="Left" Height="28" Margin="104,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150" Grid.Column="1"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="6,6,0,0" TextWrapping="Wrap" Text="ParameterMax" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="7,6,0,0" Grid.Row="1" TextWrapping="Wrap" Text="ParameterMin" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,9,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TempSign" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="19,6,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Id_Key" VerticalAlignment="Top"/>
+            <TextBox Name="tbParameterMin" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="104,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150" Grid.Row="1"/>
+            <TextBox Name="tbParameterMemo" HorizontalAlignment="Left" Height="28" Margin="104,3,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150" Grid.RowSpan="2" Grid.Column="1"/>
+            <TextBox Name="tbTempSign" HorizontalAlignment="Left" Height="30" Margin="96,1,0,0" Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Grid.RowSpan="2"/>
+            <TextBox Name="tbId_Key" IsHitTestVisible="False" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="104,3,0,0" Grid.Row="3" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150"/>
+            <Button Name="tbUpdateDB" Grid.ColumnSpan="2" Content="更新数据库" HorizontalAlignment="Left" Height="26" Margin="220,4,0,0" Grid.Row="4" VerticalAlignment="Top" Width="124" Click="btUpdateDB_Click"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

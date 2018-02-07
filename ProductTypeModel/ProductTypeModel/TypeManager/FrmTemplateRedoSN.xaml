@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="UI.FrmTemplateRedoSN"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI" HorizontalAlignment="Left" VerticalAlignment="Top"
+             mc:Ignorable="d"  Loaded="UserControl_Loaded"
+             d:DesignHeight="456.807" d:DesignWidth="713.696">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="99*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="Gray" Grid.RowSpan="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="202"/>
+                <ColumnDefinition Width="204"/>
+                <ColumnDefinition Width="147"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions >
+            <TextBlock HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="型号:" Padding="5" VerticalAlignment="Top" Width="41"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="5,3,0,0" TextWrapping="Wrap" Padding="5" Text="新增型号" VerticalAlignment="Top" Width="60"/>
+            <TextBox Name="tbReplaceType" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="70,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="131"/>
+            <Button Name="btReplaceType" Content="数据生成" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="60" Margin="2,2,0,2" Click="btReplaceType_Click"/>
+            <Button Name="btInsertToDB" Content="写入数据库" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="68" Margin="75,2,0,2" Click="btInsertToDB_Click" />
+            <ComboBox  Name="cmbAllType" HorizontalAlignment="Left" Height="30" Margin="46,0,0,0" VerticalAlignment="Top" Width="156" DropDownClosed="cmbAllType_DropDownClosed"/>
+
+        </Grid>
+        <DataGrid Name="dgInfo" Margin="0,5,0,0" Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" SelectedCellsChanged="dgInfo_SelectedCellsChanged">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="提取" Name="menuItemExtract" Click="menuItemExtract_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ProductSign" Binding="{Binding ProductSign}"/>
+                <DataGridTextColumn Header="PrintProductType" Binding="{Binding PrintProductType}"/>
+                <DataGridTextColumn Header="ProductType" Binding="{Binding ProductType}"/>
+                <DataGridTextColumn Header="SnType" Binding="{Binding SnType}"/>
+                <DataGridTextColumn Header="TrayLabelTemplate" Binding="{Binding TrayLabelTemplate}"/>
+                <DataGridTextColumn Header="BoxingLabelTemplate" Binding="{Binding BoxingLabelTemplate}"/>
+                <DataGridTextColumn Header="OutBoxLabelTemplate" Binding="{Binding OutBoxLabelTemplate}"/>
+                <DataGridTextColumn Header="HwUpdataPN" Binding="{Binding HwUpdataPN}"/>
+                <DataGridTextColumn Header="Memo" Binding="{Binding Memo}"/>
+                <DataGridTextColumn Header="Id_Key" Binding="{Binding Id_Key}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StatusBar Height="24" Grid.Row="2" VerticalAlignment="Top">
+            <StatusBar.Background>
+                <SolidColorBrush Color="{DynamicResource MyColorLightBlue}"/>
+            </StatusBar.Background>
+            <TextBlock Name="tbCurrentRow" Text="当前行号:0" Height="16"/>
+            <TextBlock Name="tbSelectedRows" Height="16" TextWrapping="Wrap" Text="选中行数:0" Width="auto"/>
+            <TextBlock Name="tbAllRows" Height="16" TextWrapping="Wrap" Text="总行数:0" Width="auto" RenderTransformOrigin="1.316,0.503"/>
+        </StatusBar>
+        <Grid Grid.Row="3" Background="Gray" Margin="-1,0,1,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="134*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="277*"/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Left" Margin="3,10,0,0" TextWrapping="Wrap" Text="ProductSign" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="3,9,0,0" Grid.Row="1" TextWrapping="Wrap" Text="PrintProductType" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="3,9,0,0" Grid.Row="2" TextWrapping="Wrap" Text="ProductType" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="3,7,0,0" Grid.Row="3" TextWrapping="Wrap" Text="SnType" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="6,10,0,0" TextWrapping="Wrap" Text="TrayLabelTemplate" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="6,8,0,0" Grid.Row="1" TextWrapping="Wrap" Text="BoxingLabelTemplate" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="6,7,0,0" Grid.Row="2" TextWrapping="Wrap" Text="OutBoxLabelTemplate" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="5,7,0,0" TextWrapping="Wrap" Text="HwUpdataPN" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="25,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Memo" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="26,7,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Id_Key" VerticalAlignment="Top"/>
+            <TextBox Name="tbProductSign" HorizontalAlignment="Left" Height="27" Margin="74,3,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="146"/>
+            <TextBox Name="tbPrintProductType" HorizontalAlignment="Left" Height="28" Margin="74,1,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146"/>
+            <TextBox Name="tbProductType" HorizontalAlignment="Left" Height="29" Margin="74,0,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="146"/>
+            <TextBox Name="tbSnType" HorizontalAlignment="Left" Height="30" Margin="74,0,0,0" Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Top" Width="146"/>
+            <TextBox Name="tbTrayLabelTemplate" Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="79,3,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="141"/>
+            <TextBox Name="tbBoxingLabelTemplate" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="79,1,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="141"/>
+            <TextBox Name="tbOutBoxLabelTemplate" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="79,0,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="141"/>
+            <TextBox Name="tbHwUpdataPN" Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="91,3,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
+            <TextBox Name="tbMemo" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="91,0,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130"/>
+            <TextBox Name="tbId_Key" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="91,0,0,0" Grid.Row="2" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130"/>
+            <Button Grid.ColumnSpan="2" Content="更新数据库" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="79,4,0,0" Grid.Row="3" VerticalAlignment="Top" Width="161" Click="btUpdateDB_Click"/>
+
+        </Grid>
+    </Grid>
+</UserControl>

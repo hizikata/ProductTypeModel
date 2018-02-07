@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="UI.FrmProductType"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI"
+             mc:Ignorable="d" Loaded="UserControl_Loaded"
+             d:DesignHeight="388.497" d:DesignWidth="662.571">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="18*"/>
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="Gray" Margin="0,0,0,79" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="202"/>
+                <ColumnDefinition Width="204"/>
+                <ColumnDefinition Width="147"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions >
+            <TextBlock HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="型号:" Padding="5" VerticalAlignment="Top" Width="41"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="5,3,0,0" TextWrapping="Wrap" Padding="5" Text="新增型号" VerticalAlignment="Top" Width="60"/>
+            <TextBox Name="tbReplaceType" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="70,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="131"/>
+            <Button Name="btReplaceType" Content="数据生成" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="60" Margin="2,2,0,2" Click="btReplaceType_Click"/>
+            <Button Name="btInsertToDB" Content="写入数据库" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="68" Margin="75,2,0,2" Click="btInsertToDB_Click" />
+            <ComboBox  Name="cmbAllType" HorizontalAlignment="Left" Height="30" Margin="46,0,0,0" VerticalAlignment="Top" Width="156" DropDownClosed="cmbAllType_DropDownClosed"/>
+
+        </Grid>
+        <DataGrid Grid.Row="1" Name="dgvTypeInfo" CanUserAddRows="False" AutoGenerateColumns="False" Margin="0,1,0,218" Grid.RowSpan="2">
+            <!--右键菜单-->
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="提取" Name="menuItemExtract" Click="menuItemExtract_Click"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="产品型号" Binding="{Binding ProductType}" />
+                <DataGridTextColumn Header="条码长度" Binding="{Binding TypeLength}"/>
+                <DataGridTextColumn Header="识别码" Binding="{Binding TypeSign}"/>
+                <DataGridTextColumn Header="Apd标识" Binding="{Binding ApdSign}"/>
+                <DataGridTextColumn Header="产品类型" Binding="{Binding TypeCatalog}"/>
+                <DataGridTextColumn Header="识别码位置" Binding="{Binding SnSign}"/>
+                <DataGridTextColumn Header="TeCaculateMethod" Binding="{Binding TeCaculateMethod}"/>
+                <DataGridTextColumn Header="PackingType" Binding="{Binding PackingType}"/>
+                <DataGridTextColumn Header="IsSmsrSpotTest" Binding="{Binding IsSmsrSpotTest}"/>
+                <DataGridTextColumn Header="IsImd2SpotTest" Binding="{Binding IsImd2SpotTest}"/>
+                <DataGridTextColumn Header="TypeVisible" Binding="{Binding TypeVisible}"/>
+                <DataGridTextColumn Header="物料ID" Binding="{Binding MaterialId}"/>
+                <DataGridTextColumn Header="对外型号" Binding="{Binding ProductTypeCommon}"/>
+                <DataGridTextColumn Header="CheckSnSubLength" Binding="{Binding CheckSnSubLength}"/>
+                <DataGridTextColumn Header="YearSign" Binding="{Binding YearSign}"/>
+                <DataGridTextColumn Header="TO类型" Binding="{Binding AlignType}"/>
+                <DataGridTextColumn Header="IsUploadHwData" Binding="{Binding IsUploadHwData}"/>
+                <DataGridTextColumn Header="IsChangeToRedoData" Binding="{Binding IsChangeToRedoData}"/>
+                <DataGridTextColumn Header="本体镭射类型" Binding="{Binding HousingLaserSign}"/>
+                <DataGridTextColumn Header="ThOneTestType" Binding="{Binding ThOneTestType}"/>
+                <DataGridTextColumn Header="TransmitRate" Binding="{Binding TransmitRate}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2" Background="Gray" Margin="0,2,0,31.655" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+
+            </Grid.RowDefinitions>
+            <TextBlock  HorizontalAlignment="Left" TextWrapping="Wrap" Text="产品类型" Width="57" Height="15" VerticalAlignment="Top" Margin="3,5,0,0"/>
+            <TextBox Name="tb1" HorizontalAlignment="Left" Height="28" Margin="71,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+            <TextBlock HorizontalAlignment="Left" Height="21" Margin="3,4,0,0" Grid.Row="1" TextWrapping="Wrap" Text="条码长度" VerticalAlignment="Top" Width="54"/>
+            <TextBlock HorizontalAlignment="Left" Height="21" Margin="2,4,0,0" Grid.Row="2" TextWrapping="Wrap" Text="识别码" VerticalAlignment="Top" Width="55"/>
+            <TextBlock HorizontalAlignment="Left" Height="22" Margin="2,3,0,0" Grid.Row="3" TextWrapping="Wrap" Text="ApdSign" VerticalAlignment="Top" Width="55"/>
+            <TextBlock HorizontalAlignment="Left" Height="21" Margin="3,4,0,0" Grid.Row="4" TextWrapping="Wrap" Text="产品类型" VerticalAlignment="Top" Width="63"/>
+            <TextBlock HorizontalAlignment="Left" Height="18" Margin="3,7,0,0" Grid.Row="5" TextWrapping="Wrap" Text="识别码位置" VerticalAlignment="Top" Width="63"/>
+            <TextBlock HorizontalAlignment="Left" Height="23" Margin="2,5,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TeCaculateMethod" VerticalAlignment="Top" Width="75"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" TextWrapping="Wrap" Text="PackingType" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="IsSmsrSpotTest" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="2" TextWrapping="Wrap" Text="IsImd2SpotTest" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TypeVisible" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="4" TextWrapping="Wrap" Text="MaterialId" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="5" TextWrapping="Wrap" Text="对外型号" VerticalAlignment="Top" Height="16" Width="65"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="6" TextWrapping="Wrap" Text="CheckSnSubLength" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" TextWrapping="Wrap" Text="YearSign" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="AlignType" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="2" TextWrapping="Wrap" Text="IsUploadHwData" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="3" TextWrapping="Wrap" Text="IsChangeToRedoData" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="4" TextWrapping="Wrap" Text="HousingLaserSign" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="5" TextWrapping="Wrap" Text="ThOneTestType" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TransmitRate" VerticalAlignment="Top"/>
+            <TextBox Name="tb2" HorizontalAlignment="Left" Height="28" Margin="71,2,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+            <TextBox Name="tb3" HorizontalAlignment="Left" Height="28" Margin="71,1,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+            <TextBox Name="tb4" HorizontalAlignment="Left" Height="28" Margin="71,0,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+            <TextBox Name="tb5" HorizontalAlignment="Left" Height="28" Margin="71,0,0,0" Grid.Row="4" TextWrapping="Wrap"  VerticalAlignment="Top" Width="129"/>
+            <TextBox Name="tb6" HorizontalAlignment="Left" Height="28" Margin="71,0,0,0" Grid.Row="5" TextWrapping="Wrap"  VerticalAlignment="Top" Width="129"/>
+            <TextBox Name="tb7" HorizontalAlignment="Left" Height="28" Margin="82,3,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"/>
+            <TextBox Name="tb8" Grid.Column="1" HorizontalAlignment="Stretch" Height="28" Margin="77,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="Auto"/>
+            <TextBox Name="tb9" Grid.Column="1" HorizontalAlignment="Left" Height="Auto" Margin="77,4,0,0" Grid.Row="1" TextWrapping="Wrap" Width="123"/>
+            <TextBox Name="tb10" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="77,3,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="123"/>
+            <TextBox Name="tb11" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="77,3,0,0" Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Top" Width="123"/>
+            <TextBox Name="tb12" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="77,4,0,0" Grid.Row="4" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="123"/>
+            <TextBox Name="tb13" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="77,2,0,0" Grid.Row="5" TextWrapping="Wrap"  VerticalAlignment="Top" Width="123"/>
+            <TextBox Name="tb14" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="77,3,0,0" Grid.Row="6" TextWrapping="Wrap"  VerticalAlignment="Top" Width="123"/>
+            <TextBox Name="tb15" Grid.Column="2" HorizontalAlignment="Left" Height="28" Margin="91,2,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="127"/>
+            <TextBox Name="tb16" Grid.Column="2" HorizontalAlignment="Left" Height="28" Margin="91,2,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="127"/>
+            <TextBox Name="tb17" Grid.Column="2" HorizontalAlignment="Left" Height="28" Margin="91,1,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="127"/>
+            <TextBox Name="tb18" Grid.Column="2" HorizontalAlignment="Left" Height="28" Margin="91,0,0,0" Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Top" Width="127"/>
+            <TextBox Name="tb19" Grid.Column="2" HorizontalAlignment="Left" Height="28" Margin="91,3,0,0" Grid.Row="4" TextWrapping="Wrap"  VerticalAlignment="Top" Width="127"/>
+            <TextBox Name="tb20" Grid.Column="2" HorizontalAlignment="Left" Height="28" Margin="91,1,0,0" Grid.Row="5" TextWrapping="Wrap"  VerticalAlignment="Top" Width="127"/>
+            <TextBox Name="tb21" Grid.Column="2" HorizontalAlignment="Left" Height="28" Margin="91,0,0,0" Grid.Row="6" TextWrapping="Wrap"  VerticalAlignment="Top" Width="127"/>
+
+        </Grid>
+        <Button Content="参数更新" HorizontalAlignment="Left" Height="32" Margin="206,3,0,0" Grid.Row="3" VerticalAlignment="Top" Width="119" Click="Button_Click"/>
+        <!--<StatusBar Height="30"  VerticalAlignment="Top" Grid.Row="3">
+            <StatusBar.Background>
+                <SolidColorBrush   Color="{DynamicResource MyColorLightBlue}"/>
+            </StatusBar.Background>
+            <TextBlock Name="tbCurrentRow" Text="当前行号:0" Height="16"/>
+            <TextBlock Name="tbSelectedRows" Height="16" TextWrapping="Wrap" Text="选中行数:0" Width="auto"/>
+            <TextBlock Name="tbAllRows" Height="16" TextWrapping="Wrap" Text="总行数:0" Width="auto" RenderTransformOrigin="1.316,0.503"/>
+        </StatusBar>-->
+
+    </Grid>
+</UserControl>
