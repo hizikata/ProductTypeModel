@@ -26,6 +26,7 @@ namespace UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             FrmMain frmMain = new FrmMain();
             frmMain.Show();
             this.Close();
