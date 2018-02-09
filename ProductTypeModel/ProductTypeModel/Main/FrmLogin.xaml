@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI" WindowStyle="None"
         mc:Ignorable="d" AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-        Title="FrmLogin" Height="265.518" Width="442.242" IsEnabled="False" Icon="/UI;component/Resources/Icons/Logo.ico" >
+        Title="用户登录" Height="265.518" Width="442.242" IsEnabled="True" Icon="/UI;component/Resources/Icons/Logo.ico" >
     <Window.Background>
         <ImageBrush ImageSource="/UI;component/Resources/Icons/Login.png"/>
     </Window.Background>
