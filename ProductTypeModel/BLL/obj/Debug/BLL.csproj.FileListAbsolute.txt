@@ -9,3 +9,14 @@ D:\Projects\ProductTypeModel\BLL\bin\Debug\DAL.pdb
 D:\Projects\ProductTypeModel\BLL\bin\Debug\Models.pdb
 D:\Projects\ProductTypeModel\BLL\obj\Debug\BLL.dll
 D:\Projects\ProductTypeModel\BLL\obj\Debug\BLL.pdb
+D:\GitHub\ProductTypeModel\ProductTypeModel\BLL\bin\Debug\BLL.dll
+D:\GitHub\ProductTypeModel\ProductTypeModel\BLL\bin\Debug\BLL.pdb
+D:\GitHub\ProductTypeModel\ProductTypeModel\BLL\bin\Debug\DAL.dll
+D:\GitHub\ProductTypeModel\ProductTypeModel\BLL\bin\Debug\Models.dll
+D:\GitHub\ProductTypeModel\ProductTypeModel\BLL\bin\Debug\Xceed.Wpf.AvalonDock.dll
+D:\GitHub\ProductTypeModel\ProductTypeModel\BLL\bin\Debug\DAL.pdb
+D:\GitHub\ProductTypeModel\ProductTypeModel\BLL\bin\Debug\Models.pdb
+D:\GitHub\ProductTypeModel\ProductTypeModel\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\GitHub\ProductTypeModel\ProductTypeModel\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\GitHub\ProductTypeModel\ProductTypeModel\BLL\obj\Debug\BLL.dll
+D:\GitHub\ProductTypeModel\ProductTypeModel\BLL\obj\Debug\BLL.pdb

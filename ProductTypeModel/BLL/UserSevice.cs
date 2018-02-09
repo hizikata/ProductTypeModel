@@ -12,13 +12,13 @@ namespace BLL
     public class UserSevice
     {
         DAL.UserService userSer=new DAL. UserService();
-        public bool IsExist(string LoginId,string LoginPwd)
+        public bool IsExist(string userId,string password)
         {
-            return userSer.IsUserExist(LoginId, LoginPwd);
+            return userSer.IsUserExist(userId,password);
         }
-        public User GetModel(string LoginId)
+        public User GetModel(string userId)
         {
-            return userSer.GetModle(LoginId);
+            return userSer.GetModle(userId);
         }
     }
 }

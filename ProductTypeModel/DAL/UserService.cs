@@ -11,19 +11,19 @@ namespace DAL
 {
     public class UserService
     {
-        SqlHelper sqlHelper = new SqlHelper();
-        public bool IsUserExist(string LoginId, string LoginPwd)
+        SqlHelper sqlHelper = new SqlHelper(EnumeData.DBName.LocalLightMasterMes);
+        public bool IsUserExist(string userId, string password)
         {
             //方法一
-            //使用SELECT count(1)会返回true ?
-            string sqlStr = @"SELECT AdminName FROM Login WHERE LoginId=@LoginId AND LoginPwd=@LoginPwd";
+            //使用SELECT count(1)当结果不存在还是会范围count=0的一行数据，故行数还是为1，返回True
+            string sqlStr = @"SELECT Name FROM Users WHERE UserId=@UserId AND Password=@Password";
             SqlParameter[] parameters =
                 {
-                new SqlParameter("@LoginId",System.Data.SqlDbType.VarChar,15),
-                new SqlParameter("@LoginPwd",System.Data.SqlDbType.VarChar,15)
+                new SqlParameter("@UserId",System.Data.SqlDbType.VarChar,15),
+                new SqlParameter("@Password",System.Data.SqlDbType.VarChar,15)
                 };
-            parameters[0].Value = LoginId;
-            parameters[1].Value = LoginPwd;
+            parameters[0].Value =userId;
+            parameters[1].Value = password;
             return sqlHelper.IsExist(sqlStr, parameters);
             //方法二 使用string.Format()格式化查询语句
             //缺点是无法指定参数类型
@@ -33,15 +33,15 @@ namespace DAL
         /// </summary>
         /// <param name="LoginId">登录ID</param>
         /// <returns></returns>
-        public User GetModle(string LoginId)
+        public User GetModle(string UserId)
         {
             DataSet ds = new DataSet();
-            string sqlStr = @"SELECT TOP 1 Id_Key,LoginId,LoginPwd,AdminName,WorkStation,Privilege FROM Login WHERE LoginId=@LoginId";
+            string sqlStr = @"SELECT TOP 1 Id_Key,UserId,Password,Name,Position,Privilege FROM Users WHERE UserId=@UserId";
             SqlParameter[] parameters =
                 {
-                    new SqlParameter("@LoginId",SqlDbType.NVarChar,15)
+                    new SqlParameter("@UserId",SqlDbType.NVarChar,15)
                 };
-            parameters[0].Value = LoginId;
+            parameters[0].Value = UserId;
             ds = sqlHelper.GetTableFromDb(sqlStr, parameters);
             if(ds.Tables[0].Rows.Count==1)//判定表格行数为1
             {
@@ -60,21 +60,21 @@ namespace DAL
                 {
                     user.Id_Key = Convert.ToInt32(row["Id_Key"]);
                 }
-                if (row["LoginId"] != null)
+                if (row["UserId"] != null)
                 {
-                    user.LoginId = row["LoginId"].ToString();
+                    user.UserId =Convert.ToInt32(row["UserId"].ToString());
                 }
-                if (row["LoginPwd"] != null)
+                if (row["Password"] != null)
                 {
-                    user.LoginPwd = row["LoginPwd"].ToString();
+                    user.Password = row["Password"].ToString();
                 }
-                if (row["AdminName"] != null)
+                if (row["Name"] != null)
                 {
-                    user.AdminName = row["AdminName"].ToString();
+                    user.Name = row["Name"].ToString();
                 }
-                if (row["WorkStation"] != null)
+                if (row["Position"] != null)
                 {
-                    user.WorkStation = row["WorkStation"].ToString();
+                    user.Position = row["Position"].ToString();
                 }
                 if (row["Privilege"] != null)
                 {

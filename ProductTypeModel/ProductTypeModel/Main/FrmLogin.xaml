@@ -28,10 +28,10 @@
         </Grid.RowDefinitions>
         <TextBlock Height="26" Margin="31,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="用户名:" VerticalAlignment="Top" FontSize="16" FontFamily="YouYuan" FontWeight="Bold" TextDecorations="{x:Null}"/>
         <TextBlock Margin="39,8,0,0" Grid.Row="2" TextWrapping="Wrap" Text="密码:"  FontSize="16" FontFamily="YouYuan" FontWeight="Bold" TextDecorations="{x:Null}"/>
-        <TextBox Name="TBUserName" Grid.Column="1" Height="28" Margin="0,4,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="Auto"/>
-        <TextBox Name="TBPassword" Grid.Column="1" Height="28" Margin="0,4,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="Auto"/>
-        <Button Name="BTCancel" Content="取消" Height="25" Margin="61,10,229,0" Grid.Row="3" FontFamily="YouYuan" VerticalAlignment="Top" Grid.Column="1" FontSize="14" Grid.ColumnSpan="2" Click="Button_Click_1" />
-        <Button Name="BTLogin" Grid.ColumnSpan="2" Content="登录" HorizontalAlignment="Left" Height="25" Margin="79,10,0,0" Grid.Row="3" FontFamily="YouYuan" VerticalAlignment="Top" Width="56" FontSize="14" Click="Button_Click"/>
+        <TextBox Name="TBUserId" Grid.Column="1" Height="28" Margin="0,4,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="Auto" KeyDown="TBUserId_KeyDown"/>
+        <PasswordBox Name="TBPassword" Grid.Column="1" Height="28" Margin="0,4,0,0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="Auto" KeyDown="TBPassword_KeyDown"/>
+        <Button Name="BTCancel" Content="取消" Height="25" Margin="61,10,229,0" Grid.Row="3" FontFamily="YouYuan" VerticalAlignment="Top" Grid.Column="1" FontSize="14" Grid.ColumnSpan="2" Click="BTCancel_Click" />
+        <Button Name="BTLogin" Grid.ColumnSpan="2" Content="登录" HorizontalAlignment="Left" Height="25" Margin="79,10,0,0" Grid.Row="3" FontFamily="YouYuan" VerticalAlignment="Top" Width="56" FontSize="14" Click="BTLogin_Click"/>
 
     </Grid>
 </Window>

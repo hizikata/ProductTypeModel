@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BLL;
+using Models;
 
 namespace UI
 {
@@ -26,6 +27,8 @@ namespace UI
         {
             InitializeComponent();
         }
+        //获取当前登录用户信息
+        public User UserModel { get; set; }
 
         private void tvProductType_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
