@@ -69,7 +69,7 @@ namespace UI
 
         private void tvMaterialOrderParameter_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            logicClass.Show(dockingManager, new FrmProductMatchSpecify(), "物料注册");
+            logicClass.Show(dockingManager,new FrmMaterialOrderParameter(), "物料注册");
         }
     }
 }

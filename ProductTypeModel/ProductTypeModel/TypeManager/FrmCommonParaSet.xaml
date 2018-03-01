@@ -24,7 +24,7 @@
             <TextBox Name="tbReplaceType" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="70,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="131"/>
             <Button Name="btReplaceType" Content="数据生成" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="60" Margin="2,2,0,2" Click="btReplaceType_Click"/>
             <Button Name="btInsertToDB" Content="写入数据库" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="68" Margin="75,2,0,2" Click="btInsertToDB_Click" />
-            <ComboBox  Name="cmbAllType" HorizontalAlignment="Left" Height="30" Margin="46,0,0,0" VerticalAlignment="Top" Width="156" DropDownClosed="cmbAllType_DropDownClosed"/>
+            <ComboBox  Name="cmbAllType" KeyUp="cmbAllType_KeyUp" GotFocus="cmbAllType_GotFocus" HorizontalAlignment="Left" IsEditable="True" Height="30" Margin="46,0,0,0" VerticalAlignment="Top" Width="156" DropDownClosed="cmbAllType_DropDownClosed"/>
             <Button Content="从Excel导入" Name="btExportFromExcel" Grid.Column="3" HorizontalAlignment="Left" Height="25" Margin="7,2,0,0" VerticalAlignment="Top" Width="79" Click="btExportFromExcel_Click"/>
 
         </Grid>

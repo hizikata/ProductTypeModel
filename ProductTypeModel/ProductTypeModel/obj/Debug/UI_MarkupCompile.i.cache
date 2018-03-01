@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Projects\ProductTypeModel\ProductTypeModel\obj\Debug\
+D:\GitHub\ProductTypeModel\ProductTypeModel\ProductTypeModel\obj\Debug\
 UI
 none
 false
 DEBUG;TRACE
-D:\Projects\ProductTypeModel\ProductTypeModel\App.xaml
+D:\GitHub\ProductTypeModel\ProductTypeModel\ProductTypeModel\App.xaml
 111637732062
 
 18-1216689675
-161184279150
+17-237808518
 TypeManager\FrmCommonParaSet.xaml;Main\FrmLogin.xaml;Main\FrmMain.xaml;TypeManager\FrmMaterialOrderParameter.xaml;TypeManager\FrmPackingExportPara.xaml;TypeManager\FrmProductMatchSpecify.xaml;TypeManager\FrmProductParameter.xaml;TypeManager\FrmProductStation.xaml;TypeManager\FrmProductType.xaml;TypeManager\FrmTemplateRedoSN.xaml;Resources\MyDictionary.xaml;
 
 True

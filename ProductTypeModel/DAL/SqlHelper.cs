@@ -11,10 +11,6 @@ namespace DAL
 {
     public class SqlHelper
     {
-        public SqlHelper()
-        {
-
-        }
         //自定义构造函数，根据输入的数据库名称不同，连接相应的数据库
         public SqlHelper(Models.EnumeData.DBName dBName)
         {            

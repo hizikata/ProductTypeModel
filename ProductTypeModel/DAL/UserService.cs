@@ -11,6 +11,7 @@ namespace DAL
 {
     public class UserService
     {
+        //使用本地数据库判定用户是否存在
         SqlHelper sqlHelper = new SqlHelper(EnumeData.DBName.LocalLightMasterMes);
         public bool IsUserExist(string userId, string password)
         {

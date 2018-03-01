@@ -18,6 +18,7 @@ namespace BLL
         //以下表格位于NBOSA
         string ProductMatchSpecify = "Ma_ProductMatchSpecify";
         string MaterialOrderParameter="Material_OrderParameter";
+        //设置索引器
         public string this[string content]
         {
             get

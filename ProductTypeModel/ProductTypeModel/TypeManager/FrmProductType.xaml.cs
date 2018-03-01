@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using Models;
+using BLL;
 
 namespace UI
 {
@@ -25,11 +26,18 @@ namespace UI
     /// </summary>
     public partial class FrmProductType : UserControl
     {
+        #region 字段
+        //储存combobox文本长度，用于表示文本长度是否发生变化
+        int Len = 0;
         BLL.ProductTypeSer productTypeSer = new BLL.ProductTypeSer();
         BLL.TableNames tableNames = new BLL.TableNames();
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
-
+        LogicClass LogClass = new LogicClass();
+        //下拉框型号列表
+        List<string> listTypes = new List<string>();
+        #endregion
+        #region 初始化
         public FrmProductType()
         {
             InitializeComponent();
@@ -46,18 +54,13 @@ namespace UI
         private void ProductTypeInitialize()
         {
             string path = Environment.CurrentDirectory + "\\Items.txt";
-            List<string> listTypes = new List<string>();
+
             productTypeSer.WriteToText(path);
             listTypes = productTypeSer.ReadFromText(path);
             cmbAllType.ItemsSource = listTypes;
         }
-        private void cmbAllType_DropDownClosed(object sender, EventArgs e)
-        {
-            ds = productTypeSer.SearchTypeInfo(tableNames["ProductType"], cmbAllType.Text.Trim());
-            dt = ds.Tables[0];
-            dgvTypeInfo.ItemsSource = dt.DefaultView;
-        }
-
+        #endregion
+        #region Click 事件
         private void btInsertToDB_Click(object sender, RoutedEventArgs e)
         {
             if (tbReplaceType.Text.Trim() == string.Empty)
@@ -317,5 +320,33 @@ namespace UI
                 }
             }                       
         }
+        #endregion
+        #region 型号 Combobox事件
+        //文本长度发生变化时自动筛选下拉框
+        private void cmbAllType_KeyUp(object sender, KeyEventArgs e)
+        {
+            //当输入信息时，设置下拉菜单打开状态
+            if (cmbAllType.IsDropDownOpen != true)
+                cmbAllType.IsDropDownOpen = true;
+            int newlen = cmbAllType.Text.Trim().Length;
+            if (Len != newlen)
+            {
+                List<string> listFiltrate = new List<string>();
+                listFiltrate = LogClass.GetListFromInfo(cmbAllType.Text.Trim(), listTypes);
+                cmbAllType.ItemsSource = listFiltrate;
+            }          
+        }
+        //当ComboBox 获取到焦点时，展开下拉框
+        private void cmbAllType_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.cmbAllType.IsDropDownOpen = true;
+        }
+        private void cmbAllType_DropDownClosed(object sender, EventArgs e)
+        {
+            ds = productTypeSer.SearchTypeInfo(tableNames["ProductType"], cmbAllType.Text.Trim());
+            dt = ds.Tables[0];
+            dgvTypeInfo.ItemsSource = dt.DefaultView;
+        }
+        #endregion
     }
 }

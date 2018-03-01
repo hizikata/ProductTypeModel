@@ -29,6 +29,9 @@ namespace UI
             InitializeComponent();
         }
         #region Copy
+        int Len = 0;
+        List<string> listTypes = new List<string>();
+        LogicClass LogClass = new LogicClass();
         ProductTypeSer ProTypeSer = new ProductTypeSer();
         BLL.ProductParameterService ProParameterSer = new ProductParameterService();
         DataSet ds = new DataSet();
@@ -39,7 +42,7 @@ namespace UI
         private void ProductTypeInitialize()
         {
             string path = Environment.CurrentDirectory + "\\Items.txt";
-            List<string> listTypes = new List<string>();
+           
             ProTypeSer.WriteToText(path);
             listTypes = ProTypeSer.ReadFromText(path);
             cmbAllType.ItemsSource = listTypes;
@@ -228,5 +231,23 @@ namespace UI
             }
         }
         #endregion
+
+        private void cmbAllType_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (cmbAllType.IsDropDownOpen != true)
+                cmbAllType.IsDropDownOpen = true;
+            int newlen = cmbAllType.Text.Trim().Length;
+            if (Len != newlen)
+            {
+                List<string> listFiltrate = new List<string>();
+                listFiltrate = LogClass.GetListFromInfo(cmbAllType.Text.Trim(), listTypes);
+                cmbAllType.ItemsSource = listFiltrate;
+            }
+        }
+
+        private void cmbAllType_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.cmbAllType.IsDropDownOpen = true;
+        }
     }
 }
