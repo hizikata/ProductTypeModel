@@ -7,11 +7,12 @@ namespace Models
 {
     public class User
     {
-        public int  UserId { get; set; }
-        public string Name { get; set; }
-        public string Password { get; set; }
-        public string Position { get; set; }
-        public string Privilege { get; set; }
         public int Id_Key { get; set; }
+        public string LoginId { get; set; }
+        public string LoginPwd { get; set; }
+        public string AdminName { get; set; }
+        public string WorkStation { get; set; }
+        public string Privilege { get; set; }
+        
     }
 }

@@ -28,10 +28,7 @@ namespace UI
             InitializeComponent();
         }
         #region Copy
-        int Len = 0;
-        LogicClass LogClass = new LogicClass();
         ProductTypeSer ProTypeSer = new ProductTypeSer();
-        List<string> listTypes = new List<string>();
         PackingExportParaService PacExportParaSer = new PackingExportParaService();
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
@@ -41,7 +38,7 @@ namespace UI
         private void ProductTypeInitialize()
         {
             string path = Environment.CurrentDirectory + "\\Items.txt";
-            
+            List<string> listTypes = new List<string>();
             ProTypeSer.WriteToText(path);
             listTypes = ProTypeSer.ReadFromText(path);
             cmbAllType.ItemsSource = listTypes;
@@ -146,7 +143,7 @@ namespace UI
             tbSelectedRows.Text = "选中行数:" + dgInfo.SelectedItems.Count + "行";
             tbAllRows.Text = "总行数:" + dgInfo.Items.Count + "行";
         }
-        //DataGrid 右键菜单方法 提取数据
+        //DataGrid 右键菜单方法
         private void menuItemExtract_Click(object sender, RoutedEventArgs e)
         {
             if (dgInfo.SelectedItems.Count == 1)
@@ -252,23 +249,5 @@ namespace UI
             }
         }
         #endregion
-
-        private void cmbAllType_GotFocus(object sender, RoutedEventArgs e)
-        {
-            this.cmbAllType.IsDropDownOpen = true;
-        }
-
-        private void cmbAllType_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (cmbAllType.IsDropDownOpen != true)
-                cmbAllType.IsDropDownOpen = true;
-            int newlen = cmbAllType.Text.Trim().Length;
-            if (Len != newlen)
-            {
-                List<string> listFiltrate = new List<string>();
-                listFiltrate = LogClass.GetListFromInfo(cmbAllType.Text.Trim(), listTypes);
-                cmbAllType.ItemsSource = listFiltrate;
-            }
-        }
     }
 }

@@ -63,23 +63,5 @@ namespace BLL
                 }
             }
         }
-        /// <summary>
-        /// 根据输入信息显示筛选后的下拉框
-        /// </summary>
-        /// <param name="Text">输入的筛选内容</param>
-        /// <param name="list">需要筛选前的列表</param>
-        /// <returns></returns>
-        public List<string> GetListFromInfo(string Text, List<string> list)
-        {
-            List<string> listFiltrate = new List<string>();
-            foreach(var item in list)
-            {
-                if (item.Contains(Text))
-                {
-                    listFiltrate.Add(item);
-                }
-            }
-            return listFiltrate;
-        }
     }
 }

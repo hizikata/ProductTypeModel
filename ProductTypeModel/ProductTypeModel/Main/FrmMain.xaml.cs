@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BLL;
-using Models;
 
 namespace UI
 {
@@ -27,8 +26,6 @@ namespace UI
         {
             InitializeComponent();
         }
-        //获取当前登录用户信息
-        public User UserModel { get; set; }
 
         private void tvProductType_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -69,7 +66,7 @@ namespace UI
 
         private void tvMaterialOrderParameter_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            logicClass.Show(dockingManager,new FrmMaterialOrderParameter(), "物料注册");
+            logicClass.Show(dockingManager, new FrmProductMatchSpecify(), "物料注册");
         }
     }
 }

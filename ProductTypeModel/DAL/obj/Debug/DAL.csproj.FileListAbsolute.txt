@@ -7,12 +7,12 @@ D:\Projects\ProductTypeModel\DAL\bin\Debug\Models.dll
 D:\Projects\ProductTypeModel\DAL\bin\Debug\Models.pdb
 D:\Projects\ProductTypeModel\DAL\obj\Debug\DAL.dll
 D:\Projects\ProductTypeModel\DAL\obj\Debug\DAL.pdb
+D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\bin\Debug\DAL.dll
+D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\bin\Debug\DAL.pdb
+D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\bin\Debug\Models.dll
+D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\bin\Debug\Models.pdb
 D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\obj\Debug\DAL.csproj.ResolveComReference.cache
 D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\obj\Debug\DAL.dll
 D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\obj\Debug\DAL.pdb
-D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\bin\Debug\DAL.dll
-D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\bin\Debug\DAL.pdb
-D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\bin\Debug\Models.dll
-D:\GitHub\ProductTypeModel\ProductTypeModel\DAL\bin\Debug\Models.pdb

@@ -23,17 +23,11 @@ namespace UI
     /// </summary>
     public partial class FrmProductStation : UserControl
     {
-        #region Initialize
-        List<string> listTypes = new List<string>();
-        int Len = 0;
-        LogicClass LogClass = new LogicClass();
         ProductTypeSer ProTypeSer = new ProductTypeSer();
         ProductStationService ProStationSer = new ProductStationService();
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
         string TableName = "Para_ProductStation";
-        #endregion
-
         public FrmProductStation()
         {
             InitializeComponent();
@@ -41,7 +35,7 @@ namespace UI
         private void ProductTypeInitialize()
         {
             string path = Environment.CurrentDirectory + "\\Items.txt";
-            
+            List<string> listTypes = new List<string>();
             ProTypeSer.WriteToText(path);
             listTypes = ProTypeSer.ReadFromText(path);
             cmbAllType.ItemsSource = listTypes;
@@ -212,24 +206,6 @@ namespace UI
             {
                 MessageBox.Show("写入错误" + count, "错误提示");
             }
-        }
-
-        private void cmbAllType_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (cmbAllType.IsDropDownOpen != true)
-                cmbAllType.IsDropDownOpen = true;
-            int newlen = cmbAllType.Text.Trim().Length;
-            if (Len != newlen)
-            {
-                List<string> listFiltrate = new List<string>();
-                listFiltrate = LogClass.GetListFromInfo(cmbAllType.Text.Trim(), listTypes);
-                cmbAllType.ItemsSource = listFiltrate;
-            }
-        }
-
-        private void cmbAllType_GotFocus(object sender, RoutedEventArgs e)
-        {
-            this.cmbAllType.IsDropDownOpen = true;
         }
     }
 }

@@ -25,7 +25,7 @@
             <TextBox Name="tbReplaceType" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="70,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="131"/>
             <Button Name="btReplaceType" Content="数据生成" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="60" Margin="2,2,0,2" Click="btReplaceType_Click"/>
             <Button Name="btInsertToDB" Content="写入数据库" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="68" Margin="75,2,0,2" Click="btInsertToDB_Click" />
-            <ComboBox  Name="cmbAllType" IsEditable="True" KeyUp="cmbAllType_KeyUp" GotFocus="cmbAllType_GotFocus" HorizontalAlignment="Left" Height="30" Margin="46,0,0,0" VerticalAlignment="Top" Width="156" DropDownClosed="cmbAllType_DropDownClosed"/>
+            <ComboBox  Name="cmbAllType" HorizontalAlignment="Left" Height="30" Margin="46,0,0,0" VerticalAlignment="Top" Width="156" DropDownClosed="cmbAllType_DropDownClosed"/>
 
         </Grid>
         <DataGrid Name="dgInfo" Margin="0,5,0,0" Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" SelectedCellsChanged="dgInfo_SelectedCellsChanged" HorizontalAlignment="Left" Width="673">

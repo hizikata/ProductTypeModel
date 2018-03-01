@@ -20,30 +20,29 @@
                 <ColumnDefinition Width="147"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions >
-            <TextBlock HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="物料名称:" Padding="5" VerticalAlignment="Top" Width="70"/>
-            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="5,3,0,0" TextWrapping="Wrap" Padding="5" Text="物料料号" VerticalAlignment="Top" Width="60"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="型号:" Padding="5" VerticalAlignment="Top" Width="41"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="5,3,0,0" TextWrapping="Wrap" Padding="5" Text="新增型号" VerticalAlignment="Top" Width="60"/>
             <TextBox Name="tbReplaceType" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="70,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="131"/>
             <Button Name="btReplaceType" Content="数据生成" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="60" Margin="2,2,0,2" Click="btReplaceType_Click"/>
             <Button Name="btInsertToDB" Content="写入数据库" Grid.Column="2" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="68" Margin="75,2,0,2" Click="btInsertToDB_Click" />
-            <ComboBox  Name="cmbMaterialName" IsEditable="True" KeyUp="cmbAllType_KeyUp" HorizontalAlignment="Left" Height="30" Margin="75,0,0,0" VerticalAlignment="Top" Width="127" DropDownClosed="cmbAllType_DropDownClosed"/>
+            <ComboBox  Name="cmbAllType" HorizontalAlignment="Left" Height="30" Margin="46,0,0,0" VerticalAlignment="Top" Width="156" DropDownClosed="cmbAllType_DropDownClosed"/>
 
         </Grid>
-        <DataGrid Name="dgInfo" Margin="0,5,0,0" Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" SelectedCellsChanged="dgInfo_SelectedCellsChanged" HorizontalAlignment="Left" Width="577">
+        <DataGrid Name="dgInfo" Margin="0,5,0,0" Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" SelectedCellsChanged="dgInfo_SelectedCellsChanged" HorizontalAlignment="Left" Width="597">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="提取" Name="menuItemExtract" Click="menuItemExtract_Click"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
-
-                <DataGridTextColumn Header="MaterialName" Binding="{Binding MaterialName}"/>
-                <DataGridTextColumn Header="MaterialSpecify" Binding="{Binding MaterialSpecify}"/>
-                <DataGridTextColumn Header="MaterialSupplier" Binding="{Binding MaterialSupplier}"/>
-                <DataGridTextColumn Header="MaterialMakePlace" Binding="{Binding MaterialMakePlace}"/>
+                <DataGridTextColumn Header="ProductType" Binding="{Binding ProductType}"/>
+                <DataGridTextColumn Header="StationID" Binding="{Binding StationID}"/>
+                <DataGridTextColumn Header="StationName" Binding="{Binding StationName}"/>
+                <DataGridTextColumn Header="StationVisible" Binding="{Binding StationVisible}"/>
                 <DataGridTextColumn Header="Id_Key" Binding="{Binding Id_Key}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <StatusBar Height="24" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="577">
+        <StatusBar Height="24" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="597">
             <StatusBar.Background>
                 <SolidColorBrush Color="{DynamicResource MyColorLightBlue}"/>
             </StatusBar.Background>

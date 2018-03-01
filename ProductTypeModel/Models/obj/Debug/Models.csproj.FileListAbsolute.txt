@@ -4,9 +4,3 @@ D:\Projects\ProductTypeModel\Models\obj\Debug\Models.csproj.CoreCompileInputs.ca
 D:\Projects\ProductTypeModel\Models\obj\Debug\Models.dll
 D:\Projects\ProductTypeModel\Models\obj\Debug\Models.pdb
 D:\Projects\ProductTypeModel\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
-D:\GitHub\ProductTypeModel\ProductTypeModel\Models\bin\Debug\Models.dll
-D:\GitHub\ProductTypeModel\ProductTypeModel\Models\bin\Debug\Models.pdb
-D:\GitHub\ProductTypeModel\ProductTypeModel\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
-D:\GitHub\ProductTypeModel\ProductTypeModel\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
-D:\GitHub\ProductTypeModel\ProductTypeModel\Models\obj\Debug\Models.dll
-D:\GitHub\ProductTypeModel\ProductTypeModel\Models\obj\Debug\Models.pdb
